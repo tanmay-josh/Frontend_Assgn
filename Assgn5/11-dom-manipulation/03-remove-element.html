@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Element from DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      button:hover {
+        background-color: #c82333;
+      }
+      #removeMe {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        padding: 15px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="removeMe">Remove this text</p>
+    <button id="removeBtn">Remove</button>
+
+    <script>
+      const removeBtn = document.getElementById("removeBtn");
+      const removeMe = document.getElementById("removeMe");
+
+      removeBtn.addEventListener("click", function () {
+        removeMe.remove();
+        removeBtn.textContent = "Element removed!";
+        removeBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>

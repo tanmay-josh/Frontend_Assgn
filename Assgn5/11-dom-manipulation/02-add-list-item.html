@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add List Item Dynamically</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      ul {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+      li {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="list">
+      <li>Item 1</li>
+    </ul>
+    <button id="addItem">Add Item</button>
+
+    <script>
+      const list = document.getElementById("list");
+      const addItemBtn = document.getElementById("addItem");
+      let itemCount = 1;
+
+      addItemBtn.addEventListener("click", function () {
+        itemCount++;
+        const newItem = document.createElement("li");
+        newItem.textContent = `Item ${itemCount}`;
+        list.appendChild(newItem);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text on Button Click</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #message {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">Hello World</div>
+    <button id="changeBtn">Change Text</button>
+
+    <script>
+      const messageDiv = document.getElementById("message");
+      const changeBtn = document.getElementById("changeBtn");
+
+      changeBtn.addEventListener("click", function () {
+        messageDiv.textContent = "Text has been changed!";
+      });
+    </script>
+  </body>
+</html>

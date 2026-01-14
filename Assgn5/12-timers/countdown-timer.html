@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0;
+      }
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      #timer {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+        margin: 30px 0;
+      }
+      button {
+        padding: 12px 30px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+      }
+      button:hover {
+        background-color: #764ba2;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Countdown Timer</h1>
+      <div id="timer">10</div>
+      <button id="startBtn">Start</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+      let count = 10;
+      let isRunning = false;
+      let intervalId;
+
+      const timerDisplay = document.getElementById("timer");
+      const startBtn = document.getElementById("startBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      function startTimer() {
+        if (isRunning) return;
+
+        isRunning = true;
+        startBtn.disabled = true;
+
+        intervalId = setInterval(() => {
+          count--;
+          timerDisplay.textContent = count;
+
+          if (count === 0) {
+            clearInterval(intervalId);
+            isRunning = false;
+            startBtn.disabled = false;
+            timerDisplay.style.color = "red";
+            alert("Time's up!");
+          }
+        }, 1000);
+      }
+
+      function resetTimer() {
+        clearInterval(intervalId);
+        count = 10;
+        isRunning = false;
+        startBtn.disabled = false;
+        timerDisplay.textContent = count;
+        timerDisplay.style.color = "#333";
+      }
+
+      startBtn.addEventListener("click", startTimer);
+      resetBtn.addEventListener("click", resetTimer);
+    </script>
+  </body>
+</html>
